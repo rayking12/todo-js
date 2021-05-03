@@ -92,7 +92,6 @@ const UI = (() => {
     renderProjects();
   };
 
-
   const selectedProject = (e) => {
     if (e.target.tagName.toLowerCase() === 'span') {
       currentProject.innerText = e.target.innerText;
@@ -113,7 +112,6 @@ const UI = (() => {
     inputDescription.value = '';
     inputNameTask.value = '';
   };
-
 
   const AddTaskToProject = () => {
     cleanInputValues();
@@ -156,7 +154,7 @@ const UI = (() => {
       e.target.parentNode.classList.add('active');
       detailsTask.classList.remove('d-none');
     } else if (e.target.classList.contains('delete')) {
-      const chosenTask = chosenProject.tasks.filter(task => task.title !== e.target.dataset.task);
+      const chosenTask = chosenProject.tasks.filter((task) => task.title !== e.target.dataset.task);
       chosenProject.tasks = chosenTask;
       storage.update(chosenProject.title, chosenProject);
       currentTask.innerText = 'Current Task';
